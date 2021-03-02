@@ -1,0 +1,40 @@
+.Search {
+	height: 75px;
+	background-color: #fff;
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+	border-radius: 5px;
+	margin-top: -35px;
+
+	.search-container {
+		padding: 10px;
+		display: flex;
+		height: 100%;
+		box-sizing: border-box;
+		align-items: center;
+
+		&__input {
+			flex: 0 0 70%;
+			margin: 0;
+			border: 0;
+		}
+
+		&__checkbox {
+			flex: 0 0 15%;
+			margin: 0;
+		}
+
+		&__button {
+			flex: 0 0 15%;
+			button {
+				background-color: $primary-blue;
+				color: #fff;
+				border: 0;
+				height: 40px;
+				width: 120px;
+				border-radius: 5px;
+			}
+		}
+	}
+}

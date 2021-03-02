@@ -1,14 +1,23 @@
 import React from 'react';
 import Job from './Job';
-import { JobProvider, useJob } from './context/JobContext';
+import { jobState } from './reducers/jobReducer';
 
-const JobBoard: React.FC = () => {
-	const { state: jobstate, dispatch } = useJob();
+interface JobBoardProps {
+	jobs: jobState;
+}
 
+const JobBoard: React.FC<JobBoardProps> = ({ jobs }) => {
 	return (
-		<div>
-			<h1>Job board</h1>
-			<Job />
+		<div className="JobBoard">
+			{jobs.loading ? (
+				<h2>Loading...</h2>
+			) : (
+				<div className="JobBoard__container">
+					{jobs.jobs.map((job) => (
+						<Job key={job.id} job={job} />
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

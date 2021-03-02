@@ -8,6 +8,7 @@ export interface JobProps {
 	location: string;
 	title: string;
 	description: string;
+	company_logo: string;
 }
 
 export interface jobState {
@@ -31,7 +32,9 @@ const jobReducer = function useReducer(state: jobState, action: jobActions) {
 			};
 		case 'search successful':
 			return {
-				...state
+				...state,
+				jobs: action.jobs,
+				loading: false
 			};
 		case 'search failed':
 			return {
